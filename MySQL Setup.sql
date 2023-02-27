@@ -1,0 +1,25 @@
+-- Create DATA 607 Skills of a Data Scientist Project Database
+
+-- Step 1: Create the new database
+
+DROP DATABASE IF EXISTS `DATA607`;
+
+CREATE DATABASE `DATA607` DEFAULT CHARACTER SET utf8 ;
+
+-- Step 2: Create the table
+
+-- Dice Data
+
+DROP TABLE IF EXISTS `DATA607`.`DICE_RAW_HTML`;
+
+CREATE TABLE `DATA607`.`DICE_RAW_HTML` (
+    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    `url` MEDIUMTEXT NOT NULL,
+    `html` MEDIUMTEXT DEFAULT NULL,
+    `scraped` int(1) UNSIGNED NOT NULL DEFAULT '0',
+    `created` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (`id`)
+);
+
+ALTER TABLE `DATA607`.`DICE_RAW_HTML` 
+  ADD KEY `scraped` (`scraped`);
